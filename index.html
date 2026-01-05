@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cameraeffects.online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="main-title">
+        <span class="title-main">cameraeffects</span><span class="title-domain">.online</span>
+    </h1>
+
+    <div class="display-container">
+        <div id="loader" class="loader">
+            <div class="dot1"></div> <div class="dot2"></div> <div class="dot3"></div>
+        </div>
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="canvas"></canvas>
+        <div id="gallery-preview" class="gallery-preview" title="查看相册">
+            <img id="gallery-preview-img" src="">
+        </div>
+        <div class="bottom-controls">
+            <div id="filter-carousel" class="filter-carousel"></div>
+            <div class="main-actions">
+                <div id="four-snap-btn" class="four-snap-btn" title="四格快照 (2秒倒计时连拍4张)">
+                    <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="15" width="30" height="30" rx="4"/><rect x="55" y="15" width="30" height="30" rx="4"/><rect x="15" y="55" width="30" height="30" rx="4"/><rect x="55" y="55" width="30" height="30" rx="4"/></svg>
+                </div>
+                <div id="shutter-btn" class="shutter-btn" title="拍照 (2秒倒计时)">
+                     <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="35"/></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="gallery-container" id="gallery-container">
+        <h3>相册</h3>
+        <div id="thumbnail-gallery" class="thumbnail-gallery"></div>
+    </div>
+
+    <div class="old-controls">
+        <div class="controls-header">
+            <h3>控制面板</h3>
+            <button id="help-btn" class="help-btn" title="显示帮助">?</button>
+        </div>
+        <div class="button-group">
+            <button id="download-current" title="下载主画面中当前显示的图片">下载当前</button>
+            <button id="download-all" title="将相册中所有照片压缩为.zip文件下载">打包下载</button>
+            <button id="return-to-live" title="从照片预览模式返回实时摄像头画面">返回实时</button>
+            <button id="reset-all" title="清空所有滤镜和相册">全部重置</button>
+        </div>
+    </div>
+</div>
+
+<div id="help-overlay" class="help-overlay hidden">
+    <div class="help-content">
+        <h2>帮助指南</h2>
+        <ul>
+            <li><strong>拍照 / 四格快照</strong>: 点击主画面下方的圆形按钮进行拍照，所有照片都将出现在下方的“相册”区域。</li>
+            <li><strong>风格切换</strong>: 在主画面底部的滑动栏中选择不同的风格和特效。</li>
+            <li><strong>相册预览</strong>: 点击主画面左下角的缩略图，可以快速跳转到相册。点击相册中的任意一张照片，可以在主画面中进行预览。</li>
+            <li><strong>下载</strong>: “下载当前”会保存您在主画面看到的图片；“打包下载”会将相册中所有照片压缩成一个.zip文件。</li>
+        </ul>
+        <button id="close-help">关闭</button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
